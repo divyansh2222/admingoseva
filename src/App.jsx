@@ -11,6 +11,7 @@ import Gallery from "./pages/Gallery";
 import GalleryOption from "./pages/GalleryOption";
 import Knownus from "./pages/Knownus";
 import KnownusOption from "./pages/KnownusOption";
+import Donation from "./pages/Donation";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/galleryoption" element={<GalleryOption />} />
               <Route path="/knowusoption" element={<KnownusOption />} />
+              <Route path="/donation" element={<Donation />} />
             </Routes>
           </div>
         </div>

@@ -22,7 +22,7 @@ const Testimonial = () => {
   };
 
   return (
-    <div className="mt-24 lg:ml-64 ml-0 min-h-screen p-6 text-center">
+    <div className="mt-24 lg:ml-64 ml-0 min-h-screen  text-center">
       {/* Header Section */}
       <button onClick={handleAddOption} className="bg-[#148F50] text-white px-4 py-2 rounded-lg flex items-center">
         <span className="text-lg mr-2">+</span> Add Option
@@ -51,7 +51,7 @@ const Testimonial = () => {
                             <td className="p-3  ">
                               <button className=" text-[#007838] p-2 rounded border-2 border-dotted px-9 py-4">{item.file}</button>
                             </td>
-                            <td className="p-3 flex items-center justify-center space-x-3  ">
+                            <td className="p-3  mt-4 flex items-center justify-center space-x-3  ">
                             <IoCreateOutline className="text-[#148F50] text-xl" />
             
                              <RiDeleteBin6Fill className="text-[#F80505] text-xl" />

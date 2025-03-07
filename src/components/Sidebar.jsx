@@ -28,7 +28,7 @@ const menuItems = [
   { name: "Know us", path: "/knownus", iconHover: knowusimg2, icon: knowusimg },
 
 
-  { name: "Donation", path: "/contact", iconHover: donationimg2, icon: donationimg },
+  { name: "Donation", path: "/donation", iconHover: donationimg2, icon: donationimg },
 
   // { name: "Setting", path: "/setting", iconHover: , icon: settingimg },
   // { name: "Profile", path: "/profile", iconHover: , icon: profileimg },
