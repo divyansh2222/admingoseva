@@ -17,6 +17,7 @@ import testimonialsimg2 from "../assets/testimonialimg2.png";
 import galleryimg2 from "../assets/galleryimg2.png";
 import knowusimg2 from "../assets/knowusimg2.png";
 import donationimg2 from "../assets/donateimg2.png";
+import { useAuthActions } from "../context/useAuthAction";
 
 
 
@@ -37,6 +38,7 @@ const menuItems = [
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const { handleLogout } = useAuthActions();
 
   return (
     <>
@@ -75,7 +77,8 @@ export const Sidebar = () => {
 
         <div className="absolute  bottom-16 left-5 flex gap-2 items-center cursor-pointer ">
           <img src={logout} alt="Logout" className="w-6 h-6" />
-          <p className="text-lg ">Logout</p>
+          <button onClick={handleLogout} className="text-lg ">Logout</button>
+          
         </div>
       </div>
     </>

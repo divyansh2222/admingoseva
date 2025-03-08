@@ -4,9 +4,11 @@ import { CgProfile } from "react-icons/cg";
 import { BiSolidMessage } from "react-icons/bi";
 import { IoNotifications } from "react-icons/io5";
 
+
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+
 
   // Handle scroll to make Navbar sticky
   useEffect(() => {
@@ -69,6 +71,7 @@ export const Navbar = () => {
         </div>
         <span className="text-lg font-medium text-white">Sushmita</span>
       </div>
+      
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (

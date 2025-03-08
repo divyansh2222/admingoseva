@@ -16,7 +16,7 @@ const AdminDashboard = () => {
   const TestimonialtoLocaleString = Number(Testimonial || 0).toLocaleString("en-US");
   
   return (
-    <div className="p-4 mt-20 lg:ml-64  ml-0  min-h-screen">
+    <div className="p-10 mt-20 lg:ml-64  ml-0  min-h-screen">
       {/* Top Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <StatCard title="Donation" value={`${DonationtoLocalSting}`} icon={donationimg} />

@@ -1,42 +1,95 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navbar } from "./components/Navbar";
-import { Sidebar } from "./components/Sidebar";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+import { AuthProvider } from "./context/LoginContext";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
 import AdminDashboard from "./pages/AdminDashboard";
 import AboutPage from "./pages/AboutPage";
 import AddOptionPage from "./pages/AddOptionPage";
 import Testimonial from "./pages/Testimonial";
-import TestimonialOptionpage from "./pages/TestimonialOptionpage";
 import Gallery from "./pages/Gallery";
-import GalleryOption from "./pages/GalleryOption";
-import Knownus from "./pages/Knownus";
-import KnownusOption from "./pages/KnownusOption";
 import Donation from "./pages/Donation";
+import Login from "./pages/Login";
+import TestimonialOptionpage from "./pages/TestimonialOptionpage";
+import Knownus from "./pages/Knownus"
+import GalleryOption from "./pages/GalleryOption";
+import KnownusOption from "./pages/KnownusOption";
+
+
+function Layout() {
+  const location = useLocation();
+  const isLoginPage = location.pathname === "/login"; // ✅ Check if we are on the Login Page
+
+  return (
+    <div className="flex flex-col h-screen">
+      {!isLoginPage && <Navbar />} {/* Hide Navbar on Login Page */}
+      <div className="flex flex-1">
+        {!isLoginPage && <Sidebar />} {/* Hide Sidebar on Login Page */}
+        <div className="  flex-1 overflow-auto">
+          <Routes>
+            <Route path="/login" element={<Login />} />
+
+            {/* Protected Routes */}
+            <Route
+              path="/"
+              element={<ProtectedRoute element={<AdminDashboard />} />}
+            />
+            <Route
+              path="/aboutus"
+              element={<ProtectedRoute element={<AboutPage />} />}
+            />
+            <Route
+              path="/add-option"
+              element={<ProtectedRoute element={<AddOptionPage />} />}
+            />
+            <Route
+              path="/knownus"
+              element={<ProtectedRoute element={<Knownus />} />}
+            />
+            <Route
+              path="/testimonials"
+              element={<ProtectedRoute element={<Testimonial />} />}
+            />
+            <Route
+              path="/testimonialoption"
+              element={<ProtectedRoute element={<TestimonialOptionpage />} />}
+            />
+            <Route
+              path="/gallery"
+              element={<ProtectedRoute element={<Gallery />} />}
+            />
+            <Route
+              path="/galleryoption"
+              element={<ProtectedRoute element={<GalleryOption />} />}
+            />
+            <Route
+              path="/knowusoption"
+              element={<ProtectedRoute element={<KnownusOption />} />}
+            />
+            <Route
+              path="/donation"
+              element={<ProtectedRoute element={<Donation />} />}
+            />
+          </Routes>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function App() {
   return (
-    <Router>
-      <div className="flex flex-col h-screen">
-        <Navbar />
-        <div className="flex flex-1">
-          <Sidebar />
-          <div className="p-6 flex-1 overflow-auto">
-            <Routes>
-              <Route path="/" element={<AdminDashboard />} />
-              <Route path="/aboutus" element={<AboutPage />} />
-              <Route path="/add-option" element={<AddOptionPage />} />
-              <Route path="/knownus" element={<Knownus />} />
-              <Route path="/testimonials" element={<Testimonial />} />
-              <Route path="/testimonialoption" element={<TestimonialOptionpage />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/galleryoption" element={<GalleryOption />} />
-              <Route path="/knowusoption" element={<KnownusOption />} />
-              <Route path="/donation" element={<Donation />} />
-            </Routes>
-          </div>
-        </div>
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Layout />
+      </Router>
+    </AuthProvider>
   );
 }
 

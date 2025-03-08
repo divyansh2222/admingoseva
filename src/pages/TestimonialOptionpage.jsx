@@ -25,7 +25,7 @@ const TestimonialOptionpage = () => {
 
 
   return (
-    <div className="flex  justify-center items-center  mt-12 md:mt-24 lg:mt-24 md:ml-20  ml-0  min-h-screen h-screen ">
+    <div className="flex p-14 justify-center items-center  mt-12 md:mt-24 lg:mt-24 md:ml-20  ml-0  min-h-screen h-screen ">
       <form
         onSubmit={handleSubmit}
         className="bg-white px-8 py-8 rounded-lg shadow-lg w-3xl relative md lg:ml-20"

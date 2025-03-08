@@ -26,7 +26,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className="mt-24 lg:ml-64 ml-0 min-h-screen ">
+    <div className="mt-24 lg:ml-64 ml-0 min-h-screen p-10">
       {/* Add Option Button */}
       <button onClick={handleAddOption} className="bg-[#148F50] text-white px-4 py-2 rounded-lg flex items-center">
         <span className="text-lg mr-2">+</span> Add Option
